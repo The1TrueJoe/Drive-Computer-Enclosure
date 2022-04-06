@@ -1,3 +1,11 @@
+# IDEs
+.vscode/
+.VSCodeCounter/
+.idea/
+
+# .ds_store
+.DS_STORE
+
 # Prerequisites
 *.d
 
