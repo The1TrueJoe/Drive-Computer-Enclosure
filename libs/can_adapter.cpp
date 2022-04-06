@@ -6,18 +6,6 @@
 void setupCAN(int CS_PIN) {
     // Get address from eeprom
     Serial.println("CAN Transceiver: Loading CAN Address");
-    
-    if (m_can_id == 0x000) {
-        uint32_t new_addr = getCANAddress();
-
-        if (new_addr == 0x000) {
-
-
-        } else {
-            m_can_id = new_addr;
-            
-        }
-    }
 
     // Log init
     Serial.println("CAN Transceiver: Init Starting");
@@ -108,70 +96,13 @@ void printReceivedCANMessage() {
 
 }
 
-/** @brief Handling for invalid can commands */
-void invalidCommand() { Serial.println("Invalid Command"); }
-
-// --------- EEPROM
-
-/**
- * @brief Write a 32 bit integer into eeprom
- * 
- * @param address Address in eeprom
- * @param value Value
- */
-
-void writeEEPROM32bit(int address, uint32_t value) {
-    byte one = (value & 0xFF);
-    byte two = ((value >> 8) & 0xFF);
-    byte three = ((value >> 16) & 0xFF);
-    byte four = ((value >> 24) & 0xFF);
-
-    EEPROM.write(address, four);
-    EEPROM.write(address + 1, three);
-    EEPROM.write(address + 2, two);
-    EEPROM.write(address + 3, one);
-
-}
-
-/**
- * @brief Read a 32 bit integer from eeprom
- * 
- * @param address eeprom address
- * 
- * @return uint32_t 32 bit value 
- */
-
-uint32_t readEEPROM32bit(int address) {
-    uint32_t four = EEPROM.read(address);
-    uint32_t three = EEPROM.read(address + 1);
-    uint32_t two = EEPROM.read(address + 2);
-    uint32_t one = EEPROM.read(address + 3);
-    
-    return ((four << 0) & 0xFF) + ((three << 8) & 0xFFFF) + ((two << 16) & 0xFFFFFF) = ((one << 24) & 0xFFFFFFFF);
-
-}
-
-/**
- * @brief Get the CAN address stored in EEPROM
- * 
- * @return uint32_t CAN Address
- */
-
-uint32_t getCANAddress() { return readEEPROM32bit(0); }
-
 /**
  * @brief Set the new can address in eeprom
  * 
  * @param new_can_addr New can address
  */
 
-void setCANAddress(uint32_t new_can_addr) { 
-    m_can_id = new_can_addr;
-    writeEEPROM32bit(0, new_can_addr);
-    
-    EEPROM.update(can_addr_mem_loc, new_can_addr); 
-
-}
+void setCANAddress(uint32_t new_can_addr) {  m_can_id = new_can_addr; }
 
 /**
  * @brief Check the condition and use to prepare a CAN message
@@ -181,15 +112,7 @@ void setCANAddress(uint32_t new_can_addr) {
  * @return uint8_t (0x01 - True) or (0x02 - False)
  */
 
-uint8_t getCANBoolean(bool condition) {
-    if (condition) {
-        return 0x01;
-
-    } else {
-        return 0x02;
-
-    }
-}
+uint8_t getCANBoolean(bool condition) { return condition ? 0x01 : 0x02; }
 
 /** @brief Convert an 8 bit integer into a standard integer  */
 int convertToInt(uint8_t incoming_int) {
