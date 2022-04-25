@@ -1,0 +1,6 @@
+[submodule "can_adapter/arduino-mcp2515"]
+	path = can_adapter/arduino-mcp2515
+	url = https://github.com/GSSM-AutoGolfCart/arduino-mcp2515
+[submodule "can_adapter/ArduinoCore-avr"]
+	path = can_adapter/ArduinoCore-avr
+	url = https://github.com/GSSM-AutoGolfCart/ArduinoCore-avr
