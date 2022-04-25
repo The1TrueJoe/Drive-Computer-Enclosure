@@ -4,3 +4,18 @@
 [submodule "can_adapter/ArduinoCore-avr"]
 	path = can_adapter/ArduinoCore-avr
 	url = https://github.com/GSSM-AutoGolfCart/ArduinoCore-avr
+[submodule "mpu/Arduino-NEO7GPS"]
+	path = mpu/Arduino-NEO7GPS
+	url = https://github.com/GSSM-AutoGolfCart/Arduino-NEO7GPS
+[submodule "mpu/Arduino-MPU6050"]
+	path = mpu/Arduino-MPU6050
+	url = https://github.com/GSSM-AutoGolfCart/Arduino-MPU6050
+[submodule "mpu/ArduinoCore-avr"]
+	path = mpu/ArduinoCore-avr
+	url = https://github.com/GSSM-AutoGolfCart/ArduinoCore-avr
+[submodule "lcd_adapter/ArduinoCore-avr"]
+	path = lcd_adapter/ArduinoCore-avr
+	url = https://github.com/GSSM-AutoGolfCart/ArduinoCore-avr
+[submodule "lcd_adapter/Adafruit_LiquidCrystal"]
+	path = lcd_adapter/Adafruit_LiquidCrystal
+	url = https://github.com/GSSM-AutoGolfCart/Adafruit_LiquidCrystal
