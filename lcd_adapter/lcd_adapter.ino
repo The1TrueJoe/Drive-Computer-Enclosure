@@ -56,8 +56,9 @@ void loop() {
     if (Serial.available() > 0) {
         String message = Serial.readString();
         
-        if (drive_com_msg.indexOf("Display: ") != -1) {
-            display(drive_com_msg.replace("Display: ", ""));
+        if (message.indexOf("Display: ") != -1) {
+            message.replace("Display: ", "");
+            display(message);
 
         }
     }
@@ -71,12 +72,14 @@ void loop() {
 
 void display(String drive_com_msg) {
     if (drive_com_msg.indexOf("L1: ") != -1) {
-        drive_com_msg = drive_com_msg.replace("L1: ", "");
+        drive_com_msg.replace("L1: ", "");
+
         lcd.setCursor(0, 0);
         lcd.print(drive_com_msg);
 
     } else if (drive_com_msg.indexOf("L2: ") != -1) {
-        drive_com_msg = drive_com_msg.replace("L2: ", "");
+        drive_com_msg.replace("L2: ", "");
+        
         lcd.setCursor(0, 1);
         lcd.print(drive_com_msg);
 
