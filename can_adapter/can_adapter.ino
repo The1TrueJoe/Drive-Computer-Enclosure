@@ -36,7 +36,7 @@ uint8_t m_can_dlc = 8;
 #define RX_LED 5
 
 // Debugging
-#define DEBUG
+//#define DEBUG
 
 /**
  * @brief Main Arduino Setup
