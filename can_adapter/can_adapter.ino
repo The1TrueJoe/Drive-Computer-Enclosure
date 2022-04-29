@@ -86,6 +86,10 @@ void loop() {
 
             adapterSendMessage(message.substring(message.indexOf(">")+1));
 
+            #ifdef DEBUG
+                printOutgoingCANMessage();
+            #endif
+
             digitalWrite(TX_LED, LOW);
             interrupts();
         }
