@@ -112,15 +112,13 @@ void canLoop() {
 
 bool getCANMessage() {
     if (can_trans -> readMessage(&can_msg_in) == MCP2515::ERROR_OK) {
-        if (can_msg_in.can_id == m_can_id) {
-            // Print Message
-            digitalWrite(RX_LED, HIGH);
-            printReceivedCANMessage();
-            digitalWrite(RX_LED, LOW);
+        // Print Message
+        digitalWrite(RX_LED, HIGH);
+        printReceivedCANMessage();
+        digitalWrite(RX_LED, LOW);
 
-            return true;
-
-        } 
+        return true;
+        
     }
 
     return false;
