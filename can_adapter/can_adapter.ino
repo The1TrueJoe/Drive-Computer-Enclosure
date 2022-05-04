@@ -53,6 +53,7 @@ void setup() {
 
     // Init serial port
     Serial.begin(115200);
+    Serial.println("Adapter Init");
 
     // Init
     can_trans = new MCP2515(CAN_CS);
@@ -129,7 +130,7 @@ bool getCANMessage() {
 /** @brief Print out the received can frame*/
 void printReceivedCANMessage() {
     // Start log
-    Serial.print("CAN-RX: (" + String(can_msg_in.can_id) + ") ");
+    Serial.print("<(" + String(can_msg_in.can_id) + ") ");
 
     // Print data
     for (int i = 0; i < can_msg_in.can_dlc; i++) {
