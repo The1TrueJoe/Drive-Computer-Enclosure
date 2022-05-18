@@ -19,3 +19,6 @@
 [submodule "lcd_adapter/Adafruit_LiquidCrystal"]
 	path = lcd_adapter/Adafruit_LiquidCrystal
 	url = https://github.com/GSSM-AutoGolfCart/Adafruit_LiquidCrystal
+[submodule "can_adapter_v2/arduino-mcp2515"]
+	path = can_adapter_v2/arduino-mcp2515
+	url = https://github.com/GSSM-AutoGolfCart/arduino-mcp2515

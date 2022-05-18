@@ -1,3 +1,5 @@
+tests/
+
 # IDEs
 .vscode/
 .VSCodeCounter/
